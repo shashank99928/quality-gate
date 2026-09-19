@@ -15,7 +15,7 @@ const WARNING = "warning";
 function readInputs() {
     const env = process.env;
     const input = (name, fallback) => {
-        const envKey = `INPUT_${name.replace(/-/g, "_").toUpperCase()}`;
+        const envKey = `INPUT_${name.toUpperCase()}`;
         if (env[envKey] !== undefined) return env[envKey];
         return fallback;
     };
