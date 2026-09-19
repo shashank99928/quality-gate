@@ -1,0 +1,29 @@
+{
+    "name": "@shsxnk/quality-gate",
+    "version": "1.0.0",
+    "description": "Audit deployed pages for SEO, accessibility markers, and security headers from a GitHub workflow or CLI.",
+    "type": "module",
+    "license": "MIT",
+    "author": "Shashank Tripathi <shashank99928@gmail.com> (https://www.shsxnk.com)",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shashank99928/quality-gate.git"
+    },
+    "keywords": [
+        "github-action",
+        "seo-audit",
+        "accessibility",
+        "security-headers",
+        "quality-gate",
+        "sitemap"
+    ],
+    "bin": {
+        "quality-gate": "./dist/index.mjs"
+    },
+    "files": [
+        "dist"
+    ],
+    "engines": {
+        "node": ">=20"
+    }
+}

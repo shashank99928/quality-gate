@@ -1,0 +1,43 @@
+name: "shsxnk Quality Gate"
+description: "Audit deployed pages for SEO, accessibility markers, and security headers. Fails the check on threshold breaches."
+author: "Shashank Tripathi <shashank99928@gmail.com>"
+branding:
+    icon: "shield"
+    color: "purple"
+
+inputs:
+    base-url:
+        description: "Base URL of the deployed site, e.g. https://example.com"
+        required: true
+    pages:
+        description: "Comma-separated paths to audit. Default: auto-discovery via sitemap.xml (capped)."
+        required: false
+        default: "auto"
+    max-pages:
+        description: "Maximum number of pages to fetch when auto-discovering via sitemap."
+        required: false
+        default: "25"
+    fail-on-findings:
+        description: "Fail the workflow when critical findings exceed zero (`true`) or never fail (`false`)."
+        required: false
+        default: "true"
+    require-csp:
+        description: "Require a Content-Security-Policy header (`true`/`false`)."
+        required: false
+        default: "false"
+    user-agent:
+        description: "User-Agent header to send."
+        required: false
+        default: "shsxnk-quality-gate/1.0 (+https://github.com/shashank99928/quality-gate)"
+
+outputs:
+    pages-checked:
+        description: "Number of pages audited."
+    problems:
+        description: "Total number of findings (critical plus warnings)."
+    critical:
+        description: "Number of critical findings."
+
+runs:
+    using: "node20"
+    main: "dist/index.mjs"
